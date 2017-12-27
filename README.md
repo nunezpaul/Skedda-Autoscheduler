@@ -15,7 +15,7 @@ In terminal:
 sudo crontab -e
 ```
 
-below all the commented information enter
+below all the commented information about crontab enter
 
 ```
 0 12 * * 2 python ~/path/to/file/scheduleMon.py
@@ -24,4 +24,4 @@ below all the commented information enter
 
 Save changes and exit.
 
-Now your system will use pre-determined settings to make the bookings on 27 days in advance for Monday and 29 days in advance for Wednesday.
+Now your system will use pre-determined settings to make the bookings on 27 days in advance for Monday and 29 days in advance for Wednesday. If you would like to change the time or how many weeks in advance the scheduling is suppose to happen then you can modify  Autoscheduler.py.
