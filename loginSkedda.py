@@ -10,8 +10,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 import os
 
 def login(email = os.environ['SKEDDA_UN'], password = os.environ['SKEDDA_PW']):
-    #profile = webdriver.FirefoxProfile('/Users/p/Library/Application Support/Firefox/Profiles/yrbs6lky.default-1467013485162')
-    #driver = webdriver.Firefox(profile)
     driver = webdriver.Firefox()
     
     loginURL = ['https://www.skedda.com/account/login?',
