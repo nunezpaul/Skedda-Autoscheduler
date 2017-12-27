@@ -24,4 +24,4 @@ below all the commented information about crontab enter
 
 Save changes and exit.
 
-Now your system will use pre-determined settings to make the bookings on 27 days in advance for Monday and 29 days in advance for Wednesday. If you would like to change the time or how many weeks in advance the scheduling is suppose to happen then you can modify  Autoscheduler.py.
+Now your system will use pre-determined settings to make the bookings on 27 days in advance for Monday and 29 days in advance for Wednesday. If you would like to change the time or how many weeks in advance the scheduling is suppose to happen then you can modify  AutoScheduler.py.
