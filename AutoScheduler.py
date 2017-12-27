@@ -26,7 +26,7 @@ def scheduleSkedda(days_from_tuesday,
         driver = login(email = email, password = pw)
         print('Attempting to schedule next desired date.')
         
-        today = datetime.date.today() + datetime.timedelta(days = days_from_tuesday) #move to Wedensday
+        today = datetime.date.today() + datetime.timedelta(days = days_from_tuesday) #move to target day of week
         fourWeeksOut = today + datetime.timedelta(weeks = 4)
         
         bookingURL = ['https://catsrecrooms.skedda.com/booking?nbend=',
