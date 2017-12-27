@@ -11,16 +11,16 @@ Coming soon
 
 In terminal:
 
-'''
+```
 sudo crontab -e
-'''
+```
 
 below all the commented information enter
 
-'''
+```
 0 12 * * 2 python ~/path/to/file/scheduleMon.py
 5 12 * * 2 python ~/path/to/file/scheduleWed.py
-'''
+```
 
 Save changes and exit.
 
