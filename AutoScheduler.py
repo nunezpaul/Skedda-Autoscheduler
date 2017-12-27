@@ -16,7 +16,7 @@ def scheduleSkedda(days_from_tuesday,
                    title = "West Coast Swing Dance Social",
                    body = "Come dance the California state dance with us!"):
    
- email = os.environ['SKEDDA_UN']
+    email = os.environ['SKEDDA_UN']
     pw = os.environ['SKEDDA_PW']
 
     print('Initializing Headless Mode.')
