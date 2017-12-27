@@ -5,7 +5,12 @@ Python work-around to schedule a recurring event 4 weeks in advance. Code here i
 This is a very hardcoded initial code to work around the Skedda scheduling system. Caltech does not allow for scheduling beyond 30 days in advance. Since Skedda does not have an option to have a recurring weekly booking and Caltech West Coast Swing uses the room every week (except 3 times a year) this is very annoying to do manually.
 
 # Dependencies
-Coming soon
+Mozilla Firefox == 52.5.2
+selenium == 3.8.0
+geckodriver == 0.17.0-arm7hf
+pyvirtualdisplay == 0.2.1
+xvfb == version as of 12/26/2017
+
 
 # Setting Up Recurring Scheduling
 
