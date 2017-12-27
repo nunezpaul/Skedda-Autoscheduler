@@ -94,6 +94,7 @@ def scheduleSkedda(days_from_tuesday,
                 if i > 5:
                     print('WARNING: No confirmation that the event has been scheduled.')
                     print('Please check to ensure that the date was properly scheduled.')
+                    break
         time.sleep(5)
         driver.quit()
     print('Exiting Selenium, Firefox and Virtual Display.')
