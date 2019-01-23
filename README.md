@@ -1,16 +1,20 @@
 # Skedda-Autoscheduler
-Python work-around to schedule a recurring event 4 weeks in advance. Code here is used by Raspberry Pi 3B and executed every Tuesday at noon.
+Python work-around to schedule a recurring events X weeks + Y days in advance. 
+Code here is used by Raspberry Pi 3B and executed when scheduled by crontab.
 
 # Overview
-This is a very hardcoded initial code to work around the Skedda scheduling system. Caltech does not allow for scheduling beyond 30 days in advance. Since Skedda does not have an option to have a recurring weekly booking and Caltech West Coast Swing uses the room every week (except 3 times a year) this is very annoying to do manually.  
+This is a refactored code to work around the Skedda scheduling system. Some elements are hardcoded but should be fairly
+easy to change and modify. The point of this project is to avoid having a person schedule Caltech Ballroom Dance Club's 
+weekly swing social. The limits to scheduling are that it must be between 2 to 30 days in advance. Anything outside of 
+this range is rejected. Since we're a student run club, we aren't that disciplined to take care of it weekly so I made
+this!
 
-# Dependencies
-Mozilla Firefox == 52.5.2  
-selenium == 3.8.0  
-geckodriver == 0.17.0-arm7hf  
-pyvirtualdisplay == 0.2.1  
-xvfb == version as of 12/26/2017  
+I've updated this such that it should be fairly simple to have up and running with docker.
 
+# Set up
+- Install docker.
+- From terminal, go to the directory containing the Dockerfile
+- Run docker build . -t skedda 
 
 # Setting Up Recurring Scheduling
 
@@ -33,4 +37,6 @@ PATH={delete brackets. enter env into the CLI and copy-pasta the value for PATH 
 
 Save changes and exit.
 
-Now your system will use pre-determined settings to make the bookings every Tuesday at noon and 5 passed noon for Monday and Wednesday 27  and 29 days in advance, respectively. If you would like to change the time or how many weeks in advance the scheduling is suppose to happen then you can modify  AutoScheduler.py.
+Now your system will use pre-determined settings to make the bookings every Tuesday at noon and 5 passed noon for Monday
+ and Wednesday 27  and 29 days in advance, respectively. If you would like to change the time or how many weeks in 
+ advance the scheduling is suppose to happen then you can modify skedda_scheduler.py.
