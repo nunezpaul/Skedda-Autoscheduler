@@ -14,11 +14,9 @@ I've updated this such that it should be fairly simple to have up and running wi
 # Set up
 - Install docker. (https://docs.docker.com/install/)
 - Clone this repo (`git clone https://github.com/nunezpaul/Skedda-Autoscheduler.git`)
-- Change directory into the Dockerfiles/
-- Build the base docker image `docker build -f path/to/Dockerfile_selenium-ff . -t selenium-ff`
-- Build the final docker image `docker build -f path/to/Dockerfile_skedda . -t skedda`
+- Build the base and final docker images by `bash path/to/build_docker_images.sh`
 
-Any updates will be to the final docker image so that it doesn't need to be rebuilt. The building process for the 
+Any updates will be to the final docker image so that all images do not need to be rebuilt. The building process for the 
 intermediate docker image can take a while.
 
 # Run
