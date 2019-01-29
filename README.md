@@ -13,8 +13,38 @@ I've updated this such that it should be fairly simple to have up and running wi
 
 # Set up
 - Install docker.
-- From terminal, go to the directory containing the Dockerfile
-- Run docker build . -t skedda 
+- From terminal, go to the directory containing the Dockerfiles
+- Build the base docker image `docker build -f Dockerfile_selenium-ff . -t selenium-ff`
+- Build the final docker image `docker build -f Dockerfile_skedda . -t skedda`
+
+Any updates will be to the final docker image so that it doesn't need to be rebuilt. The building process for the 
+intermediate docker image can take a while.
+
+# Run
+docker run -it -rm skedda python3 skedda/skedda_scheduler.py \
+--username $SKEDDA_UN --password $SKEDDA_PW --submit --num_days_away 0 --num_weeks_away 4 --debug
+
+Explanation of the args:
+- `-it` creates an interactive session that attaches to your terminal. This way you can observe the outputs. I send the 
+the outputs to an email so that I can double check that it's working.
+- `-rm` removes the container associated container from an image. If not removed then you will continue to create new 
+containers. In the future, I will attempt to re-use the last created container.
+- `--username` email that is associated with the skedda account
+- `--password` password that is associated with skedda account
+- `--submit` is the boolean flag that will determine if the results are to be submitted or not. Useful for debugging
+- `--num_days_away` how many offset days from the current day will the event be scheduled. (This is added to the offset
+weeks. Default is 1.) 
+- `--num_weeks_away` how many offset weeks from the current day will the event be scheduled. (This is added to the 
+offset days. Default is 4.)
+- `--debug` will take screenshots of the scheduling process at select key points. This is currently necessary since some
+elements will not show unless a screenshot is taken. To recover the screenshots for debugging purposes then you must 
+remove `-rm` to keep the resulting container and files. To transfer to the host find the id of the container. Create the 
+env CONTAINER to contain the ID then run:
+
+`for i in {1..13}; do docker container cp $CONTAINER\:/test$i\.png ./; done` 
+
+You will find that there are 13 files called test(1-13).png which are the screenshots. You can change the location where 
+they are sent by replacing the `./` with `path/to/desired/directory`
 
 # Setting Up Recurring Scheduling
 
@@ -32,7 +62,6 @@ SKEDDA_PW={delete brackets. insert your password}
 PATH={delete brackets. enter env into the CLI and copy-pasta the value for PATH you have on your machine}
 
 0 12 * * 2 python ~/path/to/file/scheduleMon.py
-5 12 * * 2 python ~/path/to/file/scheduleWed.py
 ```
 
 Save changes and exit.

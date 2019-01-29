@@ -1,0 +1,4 @@
+FROM selenium-ff
+
+COPY ./config.py ./skedda/config.py
+COPY ./skedda_scheduler.py ./skedda/skedda_scheduler.py

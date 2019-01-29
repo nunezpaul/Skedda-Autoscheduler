@@ -1,8 +1,6 @@
-FROM debian:buster
+FROM debian:buster AS selenium-base
 
 USER root
-COPY ./config.py ./skedda/config.py
-COPY ./skedda_scheduler.py ./skedda/skedda_scheduler.py
 
 RUN \
   apt-get update \
@@ -26,5 +24,3 @@ RUN \
 RUN \
   echo '**** Set up selenium **** ' \
   && pip3 install -U selenium==3.141.0
-
-
