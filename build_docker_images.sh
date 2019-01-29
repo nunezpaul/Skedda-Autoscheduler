@@ -5,13 +5,13 @@
 
 if [ ${0%/*} = ${0##*/} ]; then
   # Building base docker image
-  # docker build . -f Dockerfiles/Dockerfile_selenium-ff -t selenium-ff
+  docker build . -f Dockerfiles/Dockerfile_selenium-ff -t selenium-ff
 
   # Building final docker image
   docker build . -f Dockerfiles/Dockerfile_skedda -t skedda
 else
   # Building base docker image
-  # docker build ${0%/*} -f ${0%/*}\/Dockerfiles/Dockerfile_selenium-ff -t selenium-ff
+  docker build ${0%/*} -f ${0%/*}\/Dockerfiles/Dockerfile_selenium-ff -t selenium-ff
 
   # Building final docker image
   docker build ${0%/*} -f ${0%/*}\/Dockerfiles/Dockerfile_skedda -t skedda
