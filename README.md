@@ -12,17 +12,18 @@ this!
 I've updated this such that it should be fairly simple to have up and running with docker.
 
 # Set up
-- Install docker.
-- From terminal, go to the directory containing the Dockerfiles
-- Build the base docker image `docker build -f Dockerfile_selenium-ff . -t selenium-ff`
-- Build the final docker image `docker build -f Dockerfile_skedda . -t skedda`
+- Install docker. (https://docs.docker.com/install/)
+- Clone this repo (`git clone https://github.com/nunezpaul/Skedda-Autoscheduler.git`)
+- Change directory into the Dockerfiles/
+- Build the base docker image `docker build -f path/to/Dockerfile_selenium-ff . -t selenium-ff`
+- Build the final docker image `docker build -f path/to/Dockerfile_skedda . -t skedda`
 
 Any updates will be to the final docker image so that it doesn't need to be rebuilt. The building process for the 
 intermediate docker image can take a while.
 
 # Run
-docker run -it -rm skedda python3 skedda/skedda_scheduler.py \
---username $SKEDDA_UN --password $SKEDDA_PW --submit --num_days_away 0 --num_weeks_away 4 --debug
+`docker run -it -rm skedda python3 skedda/skedda_scheduler.py \
+--username $SKEDDA_UN --password $SKEDDA_PW --submit --num_days_away 0 --num_weeks_away 4 --debug`
 
 Explanation of the args:
 - `-it` creates an interactive session that attaches to your terminal. This way you can observe the outputs. I send the 
