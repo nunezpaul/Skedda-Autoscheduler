@@ -112,7 +112,7 @@ class SkeddaSchedule(SkeddaLogin):
 
     def find_correct_page(self):
         print('Navigating to calendar...')
-        self.driver.get(self.booking_url[-1])
+        self.driver.get(self.booking_url[0])
         for i in range(5):
             if i % 4 == 0:
                 self.save_screenshot()
